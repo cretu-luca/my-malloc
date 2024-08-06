@@ -1,4 +1,4 @@
-#include "main.h"
+#include "malloc.h"
 
 pthread_mutex_t global_malloc_lock;
 
