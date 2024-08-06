@@ -20,15 +20,16 @@
 
 #include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 typedef char ALIGN[16];
 
 union mblock {
-	typedef struct {
+	struct block {
 		size_t size;
 		bool is_free;
 		struct mblock *next;
-	}  mblock;
+	};
 
 	ALIGN stub; // ensures 16 bytes alignment 
 }

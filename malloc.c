@@ -1,6 +1,6 @@
 #include "malloc.h"
 
-pthread_mutex_t global_malloc_lock;
+pthread_mutex_t global_malloc_lock = PTHREAD_MUTEX_INITIALIZER;
 
 void *malloc(size_t size) {
 	size_t total_size;
