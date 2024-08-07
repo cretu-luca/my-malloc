@@ -24,17 +24,18 @@
 
 typedef char ALIGN[16];
 
-union mblock {
-	struct block {
-		size_t size;
-		bool is_free;
-		struct mblock *next;
-	};
-
-	ALIGN stub; // ensures 16 bytes alignment 
-}
-
 typedef union mblock mblock_t;
+
+struct block {
+    size_t size;
+    bool is_free;
+    mblock_t *next;
+};
+
+union mblock {
+    struct block block;
+    ALIGN stub; // ensures 16 bytes alignment
+};
 
 void *malloc(size_t size);
 mblock_t *get_free_block(size_t size);
