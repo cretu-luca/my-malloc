@@ -7,19 +7,19 @@
 pthread_mutex_t global_malloc_lock = PTHREAD_MUTEX_INITIALIZER;
 mblock_t *head = NULL, *tail = NULL;
 
-void *my_malloc(size_t size) {
+void *my_malloc(size_t nsize) {
     size_t total_size;
     void *requested_block;
     mblock_t *new_block;
 
-    if (!size)
+    if (!nsize)
         return NULL;
 
     pthread_mutex_lock(&global_malloc_lock);
 
-    total_size = sizeof(mblock_t) + size;
+    total_size = sizeof(mblock_t) + nsize;
     
-    if (total_size < size) {
+    if (total_size < nsize) {
         pthread_mutex_unlock(&global_malloc_lock);
         return NULL;
     }
@@ -32,7 +32,7 @@ void *my_malloc(size_t size) {
     }
 
     new_block = (mblock_t *)requested_block;
-    new_block->metadata.size = size;
+    new_block->metadata.size = nsize;
     new_block->metadata.is_free = 0;
     new_block->metadata.next = NULL;
 

@@ -38,7 +38,7 @@ union mblock {
     ALIGN stub; // ensures 16 bytes alignment
 };
 
-void *my_malloc(size_t size);
+void *my_malloc(size_t nsize);
 mblock_t *get_free_block(size_t nsize);
 void my_free(void *block);
 void *my_calloc(size_t num, size_t nsize);
