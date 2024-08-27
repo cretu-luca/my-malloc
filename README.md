@@ -5,7 +5,7 @@ The inspiration for this project was my Operating Systems class at BBU Cluj-Napo
 ## Implementation Details
 
 - **Concurrency** - in order to avoid race conditions (different processes read and write the same memory blocks simultaneously), I used `pthread_mutex_lock`, that ensures mutual exclusivity for one process to the memory block.
-- **Memory Acquisition** - my implementation uses the system call `[void *sbrk(int incr)][sbrk-link]` to increase or decrease the program's data segment size and therefore, request more memory from the operating system.
+- **Memory Acquisition** - my implementation uses the system call [void *sbrk(int incr)][sbrk-link] to increase or decrease the program's data segment size and therefore, request more memory from the operating system.
 - **Memory Representation** - the allocator maintains a singly linked list of all memory blocks, both allocated and free. 
 
 ## Functionalities
