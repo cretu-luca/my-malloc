@@ -24,15 +24,15 @@ void *my_malloc(size_t size) {
     }
 
     new_block = (mblock_t *)requested_block;
-    new_block -> block.size = size;
-    new_block -> block.is_free = 0;
-    new_block -> block.next = NULL;
+    new_block -> metadata.size = size;
+    new_block -> metadata.is_free = 0;
+    new_block -> metadata.next = NULL;
 
     if (!head)
         head = new_block;
 
     if (tail)
-        tail -> block.next = new_block;
+        tail -> metadata.next = new_block;
 
     tail = new_block;
     pthread_mutex_unlock(&global_malloc_lock);
@@ -42,9 +42,9 @@ void *my_malloc(size_t size) {
 mblock_t *get_free_block(size_t size) {
     mblock_t *current = head;
     while (current) {
-        if (current -> block.is_free && current->block.size >= size)
+        if (current -> metadata.is_free && current -> metadata.size >= size)
             return current;
-        current = current->block.next;
+        current = current -> metadata.next;
     }
     return NULL;
 }

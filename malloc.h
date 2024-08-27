@@ -18,24 +18,27 @@
 // 
 // gotta look at mmap() too
 
+#ifndef MY_MALLOC_H
+#define MY_MALLOC_H
+
 #include <stdbool.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include <stddef.h>
 
 typedef char ALIGN[16];
-
 typedef union mblock mblock_t;
 
-struct block {
+struct block_metadata {
     size_t size;
     bool is_free;
     mblock_t *next;
 };
 
 union mblock {
-    struct block block;
+    struct block_metadata metadata;
     ALIGN stub; // ensures 16 bytes alignment
 };
 
 void *my_malloc(size_t size);
 mblock_t *get_free_block(size_t size);
+
+#endif // MY_MALLOC_H
