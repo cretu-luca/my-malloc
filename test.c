@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <string.h>
-#include "malloc.h"
+#include "./src/malloc.h"
 
 void test_my_malloc_and_my_free() {
     int *ptr = (int *) my_malloc(sizeof(int));
