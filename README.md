@@ -16,4 +16,12 @@ To build the project, run the `build.sh` script:
 ./build.sh
 ```
 
+## Usage
+
+Include the `malloc.h` header in your C program:
+
+```c
+#include "malloc.h"
+```
+
 [memory-article]: https://arjunsreedharan.org/post/148675821737/memory-allocators-101-write-a-simple-memory
