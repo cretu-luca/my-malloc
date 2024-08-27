@@ -39,6 +39,9 @@ union mblock {
 };
 
 void *my_malloc(size_t size);
-mblock_t *get_free_block(size_t size);
+mblock_t *get_free_block(size_t nsize);
+void my_free(void *block);
+void *my_calloc(size_t num, size_t nsize);
+void *my_realloc(void *block, size_t nsize);
 
 #endif // MY_MALLOC_H
