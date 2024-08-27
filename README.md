@@ -8,4 +8,12 @@ The inspiration for this project was my Operating Systems class at BBU Cluj-Napo
 3. `void *my_calloc(size_t num, size_t nsize)` - allocates memory for an array of elements and initializes them to zero
 4. `void *my_realloc(void *block, size_t nsize)` - changes the size of a previously allocated memory block
 
+## Building the Project
+
+To build the project, run the `build.sh` script:
+
+```bash
+./build.sh
+```
+
 [memory-article]: https://arjunsreedharan.org/post/148675821737/memory-allocators-101-write-a-simple-memory
