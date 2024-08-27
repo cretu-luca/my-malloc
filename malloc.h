@@ -37,5 +37,5 @@ union mblock {
     ALIGN stub; // ensures 16 bytes alignment
 };
 
-void *malloc(size_t size);
+void *my_malloc(size_t size);
 mblock_t *get_free_block(size_t size);

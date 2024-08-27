@@ -21,16 +21,11 @@ int main() {
         arr_ptr[i] = i * 2;
     }
 
-	printf("Array Values: ");
+    printf("Array Values: ");
     for (int i = 0; i < 10; i++) {
         printf("%d ", arr_ptr[i]);
     }
-    
-	printf("\n");
-
-    // Free the allocated memory (if you have implemented free)
-    // free(ptr);
-    // free(arr_ptr);
+    printf("\n");
 
     return 0;
 }
